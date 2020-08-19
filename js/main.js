@@ -1,7 +1,8 @@
 var navbar = document.querySelector('.navbar');
 var toggleIcon = document.querySelector('.toggle-collapse');
-
+var navbarnav = document.querySelector('navbar-nav');
 toggleIcon.addEventListener('click', function(){
+    toggleIcon.classList.toggle('open');
     navbar.classList.toggle('nav-collapse');
 });
 
@@ -17,4 +18,5 @@ window.addEventListener('scroll', function(){
 })
 function navlink(){
     navbar.classList.remove('nav-collapse');
+    toggleIcon.classList.remove('open');
 }

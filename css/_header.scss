@@ -24,15 +24,53 @@
     .toggle-collapse{
         position: absolute;
         right: 3rem;
+       
+        
+        justify-content: center;
+        align-items: center;
+        width: 50px;
         margin-top: 15px;
-        border: 1px solid #e0e0e0;
-        padding: .18rem .3rem;
+        height: 50px;
+        transition: all .5s ease-in-out;
         border-radius: 4px;
         display: none;
         .toggle-icon{
-            font-size: 150%;
+           width: 30px;
+           height: 4px;
+           background: #383838;
+           border-radius: 5px;
+           
             transition: all 0.5s ease-in-out;
         }
+        .toggle-icon::before,
+        .toggle-icon::after{
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 4px;
+            background: #383838;
+           border-radius: 5px;
+          
+            transition: all 0.5s ease-in-out;
+
+        }
+        .toggle-icon::before{
+            transform: translateY(-10px);
+        }
+        .toggle-icon::after{
+            transform: translateY(10px);
+        }
+    }
+    .toggle-collapse.open .toggle-icon{
+        transform: translateX(-50px);
+        background: transparent;
+        box-shadow: none;
+    }
+    .toggle-collapse.open .toggle-icon::before{
+        transform: rotate(45deg) translate(35px,-35px);
+    }
+    .toggle-collapse.open .toggle-icon::after{
+        transform: rotate(-45deg) translate(35px,35px);
     }
     .navbar-nav{
         .nav-item{
@@ -59,9 +97,11 @@
    
 }
 .navbar.nav-collapse{
-    height:290px !important;
+    
     .navbar-nav{
-        border-top: .01rem solid #c2c4b6;
+        .nav-item{
+            left: 0;
+        }
 
     }
 }
@@ -72,6 +112,9 @@
         img{
             height: 38px;
         }
+    }
+    .toggle-collapse{
+        margin-top: 12px;
     }
     .navbar-nav{
         .nav-item{
@@ -131,16 +174,24 @@ section{
         }
         .toggle-collapse{
             display: flex;
-            margin-top: 20px;
+         
         }
         .navbar-nav{
             width: 100%;
             margin-top: 14px;
+          
            
             .nav-item{
-                flex-direction: column;
-                margin: 10px 0 0 0;
+                display: block;
+                position: fixed;
+                top:70px;
+                left: -100vw;
+                width: 100%;
+                height: 100vh;
+               margin-top: 0;
                 padding-bottom: 10px;
+                background-color: #ffffff;
+                box-shadow: inset 2px 2px 2px #b1b1b1;
                 .nav-link{
                     padding: 0;
                     a{
@@ -150,6 +201,14 @@ section{
                         padding: 1rem 0;
                     }
                 }
+            }
+        }
+    }
+    .navbar.nav-scroll{
+        .navbar-nav{
+            .nav-item{
+                margin-top: 0;
+                top: 60px;
             }
         }
     }
